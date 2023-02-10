@@ -3,7 +3,7 @@ title: "Blog Post 2"
 subtitle: "Part 2: Making Your Markdown Stand Out"
 description: "In this guide, we'll cover some more advanced features that can make your content stand out."
 pubDate: "February 6 2023"
-heroImage: "/img/content/HolyGrail.jpg"
+heroImage: "/logo_full.png"
 ---
 
 Disclaimer: This content was (mostly) AI-generated.

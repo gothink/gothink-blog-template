@@ -4,7 +4,7 @@ subtitle: "Part 1: Intro to Markdown"
 description: "Have you ever wanted to write content for the web that is easy to read and understand? That's where Markdown comes in!"
 pubDate: "January 25 2023"
 updatedDate: "January 27 2023"
-heroImage: "/img/content/hal9000_correct.png"
+heroImage: "/logo_full.png"
 ---
 
 Disclaimer: This content was (mostly) AI-generated.

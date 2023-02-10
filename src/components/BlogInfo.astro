@@ -1,0 +1,74 @@
+---
+export interface Props {
+    author?: string,
+    pubDate?: Date,
+    updatedDate?: Date,
+    readingTime?: string,
+}
+
+const { author, pubDate, updatedDate, readingTime } = Astro.props;
+
+function getDateString(dt: Date) {
+	return dt.toLocaleDateString('en-us', { year: 'numeric', month: 'short', day: 'numeric', });
+}
+
+const textColor = 'subtext0';
+const fillColor = 'overlay1';
+const iconSize = '5';
+const pubDateString = pubDate ? getDateString(pubDate) : '';
+const updatedDateString = updatedDate ? getDateString(updatedDate) : '';
+---
+
+<!-- <div class="flex flex-1 flex-row flex-wrap justify-center items-center gap-x-4"> -->
+    {author && (
+        <div class="flex flex-1 items-center min-w-fit max-w-min gap-x-1 m-1">
+            <svg class:list={`h-${iconSize} w-${iconSize} fill-${fillColor}`} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin">
+                <path class="hover:fill-flamingo" d="M21,24c0,0.552-0.447,1-1,1h-8c-0.553,0-1-0.448-1-1s0.447-1,1-1h8C20.553,23,21,23.448,21,24z"/>
+	            <path class="hover:fill-flamingo" d="M20,26h-8c-0.553,0-1,0.448-1,1s0.447,1,1,1h8c0.553,0,1-0.448,1-1S20.553,26,20,26z"/>
+                <path class="hover:fill-flamingo" d="M15,29v1c0,0.552,0.448,1,1,1s1-0.448,1-1v-1H15z"/>
+                <path class="hover:fill-blue" d="M26,11c0,5-5,8-5,10c0,0.552-0.448,1-1,1h-8c-0.552,0-1-0.448-1-1c0-2-5-5-5-10C6,5.477,10.477,1,16,1S26,5.477,26,11z M17,4c0-0.552-0.447-1-1-1c-4.411,0-8,3.589-8,8c0,0.552,0.447,1,1,1s1-0.448,1-1c0-3.309,2.691-6,6-6C16.553,5,17,4.552,17,4z"/>
+            </svg>
+            <span class:list={`text-${textColor} hover:text-blue hover:underline hover:decoration-flamingo text-sm`}>
+                { author }
+            </span>
+        </div>
+    )}
+
+    {readingTime && (
+        <div class="flex flex-1 min-w-fit max-w-min gap-x-1 m-1">
+            <svg class:list={`h-${iconSize} w-${iconSize} fill-${fillColor}`} viewBox="-2 -2 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin">
+                <path d='M11 9h4a1 1 0 0 1 0 2h-5a1 1 0 0 1-1-1V4a1 1 0 1 1 2 0v5zm-1 11C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z'/>
+            </svg>
+            <span class:list={`text-${textColor} text-sm`}>
+                { readingTime }
+            </span>
+        </div>
+    )}
+
+    {pubDate && (
+        <div class="flex flex-1 min-w-fit max-w-min gap-x-1 m-1">
+            <svg class:list={`h-${iconSize} w-${iconSize} fill-${fillColor}`} viewBox="-2 -3 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin">
+                <path d='M18 7V5a1 1 0 0 0-1-1h-1v1a1 1 0 0 1-2 0V4H6v1a1 1 0 1 1-2 0V4H3a1 1 0 0 0-1 1v2h16zm0 2H2v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9zm-2-7h1a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h1V1a1 1 0 1 1 2 0v1h8V1a1 1 0 0 1 2 0v1z'/>
+            </svg>
+            <span class:list={`text-${textColor} text-sm`}>
+                <time datetime={pubDate.toISOString()}>
+                    { pubDateString }
+                </time>
+            </span>
+        </div>
+    )}
+
+    {updatedDate && (
+        <div class="flex flex-1 min-w-fit max-w-min gap-x-1 m-1">
+            <svg class:list={`h-${iconSize} w-${iconSize} fill-${fillColor}`} viewBox="-2.5 -2.5 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin">
+                <path d='M12.238 5.472L3.2 14.51l-.591 2.016 1.975-.571 9.068-9.068-1.414-1.415zM13.78 3.93l1.414 1.414 1.318-1.318a.5.5 0 0 0 0-.707l-.708-.707a.5.5 0 0 0-.707 0L13.781 3.93zm3.439-2.732l.707.707a2.5 2.5 0 0 1 0 3.535L5.634 17.733l-4.22 1.22a1 1 0 0 1-1.237-1.241l1.248-4.255 12.26-12.26a2.5 2.5 0 0 1 3.535 0z'/>
+            </svg>
+            <span class:list={`italic text-${textColor} text-sm`}>
+                <time datetime={updatedDate.toISOString()}>
+                    { updatedDateString }
+                    </time>
+            </span>
+        </div>
+    )}
+
+<!-- </div> -->

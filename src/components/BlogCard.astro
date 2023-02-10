@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BlogInfo from './BlogInfo.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+const { author, description, title, subtitle, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<div class="flex flex-1 flex-col sm:flex-row max-w-3xl">
+    <div class="basis-1/3 flex flex-1 items-center">
+        <img src={heroImage} alt={title}>
+    </div>
+    <div class="basis-2/3 flex flex-1 flex-col justify-center p-2 sm:px-4">
+        <h2 class=" text-xl sm:text-2xl font-bold pb-2">{title}</h2>
+        {subtitle && (<h3 class="text-lg sm:text-xl italic text-subtext1 pb-2">
+            {subtitle}
+        </h3>)}
+        <span class="flex-grow text-xs text-subtext0 mb-2">{description}</span>
+        <div class="flex flex-1 flex-row flex-wrap items-center justify-center sm:justify-start gap-x-4 order-first sm:order-last">
+            <BlogInfo author={author} pubDate={pubDate} updatedDate={updatedDate} />
+        </div>
+    </div>
+</div>

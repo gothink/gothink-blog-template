@@ -1,0 +1,35 @@
+---
+title: "Blog Post 3"
+subtitle: "Part 3: Going Further with Markdown"
+description: "So you've got a handle on the basics of Markdown, in this guide, we'll cover some of the most powerful features of Markdown."
+pubDate: "February 6 2023"
+heroImage: "/img/content/HolyGrail.jpg"
+---
+
+Disclaimer: This content was (mostly) AI-generated.
+
+# Going Further with Markdown
+
+So you've got a handle on the basics of Markdown, and you've added a bit of flair to your content. But what if you want to go even further and create truly dynamic content? In this guide, we'll cover some of the most powerful features of Markdown.
+
+## Links
+
+Links are a fundamental part of the web, and Markdown makes it easy to add links to your content. To create a link, simply wrap the text you want to use as your link text in square brackets, and then add the URL in parentheses immediately following. For example:
+
+```markdown
+[Gothink](https://gothink.dev)
+```
+
+This will create a link that says "Gothink" and links to `https://gothink.dev`: [Gothink](https://gothink.dev)
+
+## Embeds
+
+Want to add images, videos, or other types of media to your content? With Markdown, you can easily embed media from a variety of sources. To add an image, simply use the following syntax:
+
+```markdown
+![Alt text](image URL)
+```
+
+You can also embed videos and other types of media using similar syntax.
+
+And there you have it! With these powerful features, you can create dynamic and engaging content that your readers will love.

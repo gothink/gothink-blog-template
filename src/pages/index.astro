@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import BlogCard from '../components/BlogCard.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout>
+	<div class="m-4 space-y-4">
+		<h1 class="text-4xl">Howdy! 👋</h1>
+		<div class="flex flex-1 flex-col text-lg space-y-4">
+			<p>I'm a <span class="font-bold">template</span> that you can use to make your own blog!</p>
+			<p>
+				Check out the template on <a class="text-blue underline decoration-flamingo" href="https://github.com/gothink/gothink-blog-template" target="_blank">GitHub</a>
+				 for the latest version of the documentation. This is a work in progress and will be changing quickly and often.
+			</p>
+			<p>
+				Visit <a class="text-blue underline decoration-flamingo" href="https://gothink.dev">
+					gothink.dev</a> to see a live example.
+			</p>
+		</div>
+	</div>
+	<div>
+		<h2 class="text-2xl mt-2 text-center my-2">Recent Articles</h2>
+		<div class="flex flex-1 flex-col gap-2 sm:mx-8">
+			{
+				posts.map((post) => (
+					<a class="p-4 border border-rosewater rounded-md shadow-sm shadow-surface2 hover:shadow-blue" href={`/blog/${post.slug}`}>
+						<BlogCard {...post.data} />
+					</a>
+				))
+			}
+		</div>
+	</div>
+</BaseLayout>
